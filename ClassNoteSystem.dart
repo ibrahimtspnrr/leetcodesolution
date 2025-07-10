@@ -21,7 +21,7 @@ double classAverage=0;
     print("$i. öğrencinin adını girin:");
     String? name = stdin.readLineSync();
 
-    if (name == null || name.isEmpty) 
+    if (name == null || name.isEmpty ||!RegExp(r"^[a-zA-ZğüşöçıİĞÜŞÖÇ\s]+$").hasMatch(name)) 
     {
       print("Geçersiz isim. Bu öğrenci atlandı.");
       continue;
@@ -36,9 +36,9 @@ double classAverage=0;
     if (mathematic == null || turkish == null) 
     {
       studentInformation[name] = {
-      "ortalama":"",
-      "durum": "Not girilmemiş"
-    };
+        "ortalama":"",
+        "durum": "Not girilmemiş"
+      };
       continue;
     }
 
